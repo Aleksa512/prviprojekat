@@ -54,3 +54,39 @@ items.previousElementSibling.style.color="red";
 let drugiElement=document.getElementsByClassName("list-item")[1];
 
 drugiElement.parentElement.previousElementSibling.style.backgroundColor="green";
+
+let newDiv=document.createElement('div');
+console.log(newDiv);
+
+newDiv.id="new-div"
+newDiv.className="new-div-class"
+let newDivText=document.createTextNode("Hello world");
+newDiv.appendChild(newDivText);
+let container=document.querySelector("#container");
+let h2=document.querySelector("#container h2");
+container.insertBefore(newDiv,h2);
+
+//
+let itemsContainer=document.querySelector("#items");
+let listItems1=document.querySelectorAll(".list-items");
+
+let newLi=document.createElement('li');
+newLi.className="list-item";
+let LiText=document.createTextNode("peti red");
+newLi.appendChild(LiText);
+itemsContainer.insertBefore(newLi,itemsContainer.lastChild);
+
+
+
+let textBox=document.getElementById("textBox");
+let button=document.getElementById("button");
+
+let addItemToList=function(){
+    let text=textBox.value;
+    let newLi=document.createElement('li');
+    newLi.className='list-item';
+    let LiText=document.createTextNode(text);
+    newLi.appendChild(LiText);
+    itemsContainer.insertBefore(newLi,itemsContainer.lastChild);
+}
+button.addEventListener('click',addItemToList);
