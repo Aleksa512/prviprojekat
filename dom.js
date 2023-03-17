@@ -14,9 +14,9 @@ for(let i=0; i < listItems.length; i++)
     listItems[i].style.color = "white";
     if(i%2==0)
     {
-        listItems[i].style.backgroundColor = "yellow";
+        listItems[i].style.backgroundColor = "cyan";
     }
-    else listItems[i].style.backgroundColor = "#200E6F";
+    else listItems[i].style.backgroundColor = "cyan";
 }
 
 console.log(document.getElementById("container"));
@@ -33,7 +33,7 @@ listItems[3].textContent="Cetvrti";
 
 listItems[3].backgroundColor="red";
 
-document.querySelector("#random-element p").style.backgroundColor="yellow";
+document.querySelector("#random-element p").style.backgroundColor="cyan";
 document.querySelector("#element1 p").style.backgroundColor="red";
 
 let listitem=document.getElementById("items");
@@ -44,10 +44,10 @@ items.parentNode.style.backgroundColor="blue";
 console.log(items.parentElement);
 
 console.log(items.childNodes);
-items.childNodes[1].style.backgroundColor="brown";
+items.childNodes[1].style.backgroundColor="cyan";
 
 console.log(items.children);
-items.children[0].style.backgroundColor="brown";
+items.children[0].style.backgroundColor="cyan";
 
 items.previousElementSibling.style.color="red";
 
@@ -80,6 +80,8 @@ itemsContainer.insertBefore(newLi,itemsContainer.lastChild);
 
 let textBox=document.getElementById("textBox");
 let button=document.getElementById("button");
+button.style.height="100px";
+button.style.width="100px";
 
 let addItemToList=function(){
     let text=textBox.value;
@@ -90,3 +92,17 @@ let addItemToList=function(){
     itemsContainer.insertBefore(newLi,itemsContainer.lastChild);
 }
 button.addEventListener('click',addItemToList);
+
+let radiNesto=function(event){
+    console.log("clicked");
+    console.log(event);
+    console.log(event.target.id);
+    console.log(event.clientX);
+    console.log(event.offsetX);
+    console.log(event.clientY);
+    console.log(event.offsetY);  
+    event.target.style.backgroundColor="rgb("+event.offsetX+","+event.offsetY+",10)";
+}
+button.addEventListener("click",radiNesto);
+button.addEventListener("mousemove",radiNesto);
+
